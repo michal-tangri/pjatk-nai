@@ -1,6 +1,6 @@
-## PJATK - NAI
+![Logo PJATK](https://sklep.pja.edu.pl/wp-content/uploads/2017/03/PJATK_shop-1.png)
+# PJATK - NAI 
 ###### *Narzędzia sztucznej inteligencji*
-
 ##### Spis laboratoriów:
 + LAB1
     - Wyświetlanie obrazu z kamerki komputerowej

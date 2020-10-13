@@ -1,6 +1,6 @@
-#include <opencv.hpp>
-#include <highgui.hpp>
-#include <core/base.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/core/base.hpp>
 #include <iostream>
 
 int main( int argc, char**argv) {

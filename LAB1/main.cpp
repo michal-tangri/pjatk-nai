@@ -18,11 +18,10 @@ int main( int argc, char**argv) {
     do {
         cv::Mat frame, frameFlip;
         if ( cap.read( frame ) ) {
-            
             if(argc > 1) {
                 if(strcmp(argv[1], "noflip") == 0) {
                     //Normal camera image
-                cv::imshow( "Not-yet smart windown", frame );
+                    cv::imshow( "Not-yet smart windown", frame );
                 }
                 else {
                     std::cout << "Wrong argument! Exiting..." << std::endl;
@@ -31,10 +30,9 @@ int main( int argc, char**argv) {
             }
             else {
                 //Flipped camera image
-                    cv::flip(frame, frameFlip, 1);
-                    cv::imshow( "Not-yet smart windown", frameFlip );
+                cv::flip(frame, frameFlip, 1);
+                cv::imshow( "Not-yet smart windown", frameFlip );
             }
-        
         }
         else
             capturing = false;
@@ -42,5 +40,6 @@ int main( int argc, char**argv) {
         if( (cv::waitKey( 1000.0/60.0 )&0x0ff) == 27 ) capturing = false;
 
     } while( capturing );
+    
     return 0;
 }

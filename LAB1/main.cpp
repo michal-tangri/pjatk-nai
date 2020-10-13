@@ -3,7 +3,7 @@
 #include <core/base.hpp>
 #include <iostream>
 
-int main( int argc, char** argv ) {
+int main( int argc, char**argv) {
 
     bool capturing = true;
     cv::VideoCapture cap(0);
@@ -14,13 +14,27 @@ int main( int argc, char** argv ) {
     }
 
     std::cout << "Video size: " << cap.get( cv::CAP_PROP_FRAME_WIDTH ) << "x" << cap.get( cv::CAP_PROP_FRAME_HEIGHT ) << std::endl;
-    
+
     do {
         cv::Mat frame, frameFlip;
         if ( cap.read( frame ) ) {
-            //Camera flipping
-            cv::flip(frame, frameFlip, 1);
-            cv::imshow( "Not-yet smart windown", frameFlip );
+            
+            if(argc > 1) {
+                if(strcmp(argv[1], "noflip") == 0) {
+                    //Normal camera image
+                cv::imshow( "Not-yet smart windown", frame );
+                }
+                else {
+                    std::cout << "Wrong argument! Exiting..." << std::endl;
+                    return 0;
+                }
+            }
+            else {
+                //Flipped camera image
+                    cv::flip(frame, frameFlip, 1);
+                    cv::imshow( "Not-yet smart windown", frameFlip );
+            }
+        
         }
         else
             capturing = false;

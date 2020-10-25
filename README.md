@@ -6,7 +6,14 @@
     - Wyświetlanie obrazu z kamerki komputerowej
     - Obracanie obrazu z kamerki komputerowej
     - Kończenie pracy programu wybranym klawiszem
-
++ LAB2
+    - Pobieranie pojedynczej klatki obrazu z kamerki komputerowej
+    - Rozmycie obrazu
+    - Skalowanie obrazu
+    - Przekształcanie przestrzeni barw obrazu do formatu HSV
+    - Wykonywanie operacji inRange
+    - Dodawanie suwaków i wyświetlanie ich wartości
+    - Zapisywanie wycinka obrazu
 
 #### Użyte narzędzia:
 * C++14

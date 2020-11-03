@@ -14,6 +14,14 @@
     - Wykonywanie operacji inRange
     - Dodawanie suwaków i wyświetlanie ich wartości
     - Zapisywanie wycinka obrazu
++ LAB3
+    - Wykrywanie obiektów o zadanym kolorze
+    - Usuwanie zakłóceń z obrazu
+    - Wykrywanie i wyświetlanie konturów obiektów
+    - Sortowanie konturów po ich polu
+    - Znajdywanie środków konturów
+    - Rysowanie linii między środkami największych obiektów
+
 
 #### Użyte narzędzia:
 * C++14

@@ -21,7 +21,12 @@
     - Sortowanie konturów po ich polu
     - Znajdywanie środków konturów
     - Rysowanie linii między środkami największych obiektów
-
++ LAB5
+    - Wykrywanie obiektów z użyciem kaskady
+    - Zliczanie obiektów na ekranie
++ LAB6
+    - Algorytm optymalizacyjny z losowym próbkowaniem dziedziny
+    - Funkcje testowe algorytmów optymalizacyjnych
 
 #### Użyte narzędzia:
 * C++14

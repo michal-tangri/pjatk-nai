@@ -145,5 +145,6 @@ int main()
     }
 
     saveDataToFile(averages_from_data);
+    system("gnuplot -p ex.gnu");
     
 }

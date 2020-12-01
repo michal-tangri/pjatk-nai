@@ -1,6 +1,5 @@
-set style data points
+set style data lines
 set xlabel 'iterations'
 set ylabel 'result'
-set title "Result from 5 tests"
-show title
+set title "Average result from 5 tests"
 plot 'data.txt'

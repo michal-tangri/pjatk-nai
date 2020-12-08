@@ -79,11 +79,11 @@ auto random_sampling_algorithm = [](auto func, auto fitness, auto phen_generator
     phenotype best_phen;
     phenotype phen = convert_genotype_to_phenotype(phen_generator(), domain_max);
 
-    double current_solution = func(phen.x, phen.y);
+    double current_solution = fitness(phen, func);
     for (int i = 0; i < iterations_max; i++) {
         phen = convert_genotype_to_phenotype(phen_generator(), domain_max);
-        double new_solution = func(phen.x, phen.y);   
-        if (fitness(new_solution) > fitness(current_solution)) {
+        double new_solution = fitness(phen, func);   
+        if (new_solution > current_solution) {
             best_phen = phen;
             current_solution = new_solution;
         }
@@ -93,14 +93,21 @@ auto random_sampling_algorithm = [](auto func, auto fitness, auto phen_generator
 
 int main() {
 
+    /* 
+        Minimums: 
+            f(3.0, 2.0)
+            f(-2.805118, 3.131312)
+            f(-3.779310,-3.283186)
+            f(3.584428,-1.848126)
+    */
     auto himmelblau_function = [](double x, double y) {
         double firstPart = pow(x, 2) + y - 11;
         double secondPart = x + pow(y, 2) - 7;
         return pow(firstPart, 2) + pow(secondPart, 2);
     };
 
-    auto fitness = [](double value) {
-        return value * (-1);
+    auto fitness = [](phenotype phen, auto func) {
+        return 1 / abs((func(phen.x, phen.y) * (-1)));
     };
 
     auto phen_generator = [](int size = 128) {
@@ -114,7 +121,7 @@ int main() {
         return result;
     };
 
-    unsigned int iterations = 10000;
+    const unsigned int iterations = 100000;
 
     phenotype phen;
     for (int i = 0; i < 3; i++) {

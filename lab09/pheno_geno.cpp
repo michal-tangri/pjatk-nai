@@ -53,3 +53,9 @@ phenotype convert_genotype_to_phenotype(std::vector<int> genotype, double domain
     phen.chromosome = genotype;
     return phen;
 }
+
+void phenotype::updatePhenotype(std::vector<int> chromosome, double domain_max) {
+    phenotype buffer = convert_genotype_to_phenotype(chromosome, domain_max);
+    this->x = buffer.x;
+    this->y = buffer.y;
+}

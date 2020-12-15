@@ -11,11 +11,16 @@
 std::random_device r;
 std::default_random_engine e1(r());
 
+phenotype updatePhenotype(std::vector<int> chromosome, double domain_max) {
+    return convert_genotype_to_phenotype(chromosome, domain_max);
+}
 
 auto printResults = [](std::vector<phenotype> results, auto func, auto fitness, std::string description) {
     std::cout << "============" << description << "============" << std::endl;
-    for (auto result : results)
+    for (auto result : results) {
         std::cout << "[ " << result.x << ", " << result.y << "] -> " << fitness(result, func) << std::endl;
+
+    }
 };
 
 auto selection_roulette = [](auto population) {
@@ -56,20 +61,23 @@ auto mutation_probabilitic = [](auto population, double p_mutation = 0.1) {
     return mutated_population;
 };
 
-auto crossover_one_point = [](auto population, double p_crossover = 0.9) {
+auto crossover_one_point = [](auto population, double domain_max, double p_crossover = 0.9) {
     decltype(population) results;
-    std::uniform_real_distribution<double> r_pcross(0.0, 1.0);
+    std::uniform_real_distribution<double> uniform_cross(0.0, 1.0);
     for (int i = 0; i < (population.size() - 1); i += 2)
     {
         auto current = population.at(i);
         auto next = population.at(i + 1);
 
-        if (r_pcross(e1) < p_crossover)
+        if (uniform_cross(e1) < p_crossover)
         {
             std::uniform_int_distribution<int> uniform(0, current.chromosome.size() - 1);
             auto crossover_p = uniform(e1);
-            for (int g = crossover_p; g < current.chromosome.size(); g++)
+            for (int g = crossover_p; g < current.chromosome.size(); g++) {
                 std::swap(current.chromosome[g], next.chromosome[g]);
+                current.updatePhenotype(current.chromosome, domain_max);
+                next.updatePhenotype(next.chromosome, domain_max);
+            }
         }
         results.push_back(current);
         results.push_back(next);
@@ -123,5 +131,5 @@ int main()
 
     printResults(selection_roulette(population), himmelblau_function, fitness, "Roulette");
     printResults(mutation_probabilitic(population), himmelblau_function, fitness, "Mutation");
-    printResults(crossover_one_point(population), himmelblau_function, fitness, "Crossover");
+    printResults(crossover_one_point(population, 5), himmelblau_function, fitness, "Crossover");
 }

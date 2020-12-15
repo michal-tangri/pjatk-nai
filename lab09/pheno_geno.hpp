@@ -3,7 +3,8 @@
 
 #include <vector>
 
-struct phenotype {
+
+class phenotype {
     public:
         double x;
         double y;
@@ -27,6 +28,8 @@ struct phenotype {
         this->y = y;
         this->fitness = fitness;
     };
+
+    void updatePhenotype(std::vector<int> chromosome, double domain_max);
 };
 
 std::vector<int> convert_phenotype_to_genotype(phenotype phen, double domain_max);

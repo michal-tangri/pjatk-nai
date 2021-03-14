@@ -27,6 +27,19 @@
 + LAB6
     - Algorytm optymalizacyjny z losowym próbkowaniem dziedziny
     - Funkcje testowe algorytmów optymalizacyjnych
++ LAB7
+    - Tworzenie grafów przy użyciu algorytmów optymalizacyjnych
++ LAB8
+    - Konwersja z genotypu do fenotypu
+    - Konwersja z fenotypu do genotypu
+    - Funkcja fitness
++ LAB9
+    - Krzyżowanie jednopunktowe
+    - Mutacja
+    - Selekcja ruletkowa
+    - Zarys algorytmu genetycznego
++ LAB10
+    - Pełen algorytm genetyczny
 
 #### Użyte narzędzia:
 * C++14
